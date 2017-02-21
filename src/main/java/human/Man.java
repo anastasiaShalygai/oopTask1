@@ -56,7 +56,6 @@ public class Man {
     }
 
     private boolean tolerateSociety(boolean gender2) {
-
         if ((!gender) && (!gender2))
             return getProbability(5);
         else if (((gender) && (!gender2)) || ((!gender) && (gender2)))
@@ -68,6 +67,7 @@ public class Man {
 
     private boolean spendTimeTogether(float height2) {
         float percentHeight;
+        //with braces it would be more readable
         if (height > height2) percentHeight = (height2 * 100) / height;
         else percentHeight = (height * 100) / height2;
 
@@ -100,5 +100,23 @@ public class Man {
                 System.out.println("тест Терпеть/выдерживать общество не пройден! \n ничего не вышло... разбежались");
         } else
             System.out.println("тест Говорить не пройден \n ничего не вышло... разбежались");
+    }
+
+    public void haveRelationship1(Man person2) {
+        if (speak(person2.gender) && tolerateSociety(person2.gender) && spendTimeTogether(person2.height)) {
+            System.out.println("тесты Терпеть/выдерживать общество, Проводить время вместе и Говорить пройдены успешно!");
+            if (person2.gender != gender) {
+                Woman woman;
+                if (!person2.gender) {
+                    woman = (Woman) person2;
+                    woman.humanBirth(this);
+                } else {
+                    woman = (Woman) this;
+                    woman.humanBirth(person2);
+                }
+            } else
+                System.out.println("ничего не вышло... разбежались");
+        } else
+            System.out.println("тесты Терпеть/выдерживать общество, Проводить время вместе, Говорить не пройдены\n ничего не вышло... разбежались");
     }
 }

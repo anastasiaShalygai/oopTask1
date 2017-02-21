@@ -20,11 +20,11 @@ public class Woman extends Man {
         float weightWoman = this.getWeight();
         float weight;
 
+        //Static method call via class object
         gender = man.getProbability(50);
 
         System.out.printf("Введите имя для ребёнка(пол = %b): ", gender);
         name = ScanManager.consoleReadString();
-
 
         surname = man.getSurname();
 
@@ -37,6 +37,7 @@ public class Woman extends Man {
             height = (float) (heightWoman + (0.1 * (man.getHeight() - heightWoman)));
             weight = (float) (weightWoman + (0.1 * (man.getWeight() - weightWoman)));
             Man child = new Man(gender, name, surname, height, weight);
+            //Why are you calling method from implementation class?
             Implementation.outputData(child);
         }
     }

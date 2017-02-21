@@ -4,9 +4,6 @@ import human.Man;
 import human.Woman;
 import scanner.ScanManager;
 
-import java.util.Map;
-import java.util.Set;
-
 /**
  * Created by Anastasiya on 19.02.2017.
  */
@@ -24,7 +21,6 @@ public class Implementation {
         inputData();
         if (gender) person1 = new Man(gender, name, surname, height, weight);
         else person1 = new Woman(gender, name, surname, height, weight);
-
 
         inputData();
         if (gender) person2 = new Man(gender, name, surname, height, weight);
